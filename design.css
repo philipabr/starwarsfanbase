@@ -1,0 +1,356 @@
+:root {
+    --primary-color: #00458b; 
+    --secondary-color: #750000; 
+    --accent-color: #FFE81F; 
+    --text-dark: #212529;
+    --text-light: #F8F9FA;
+    --background-color: #F8F9FA;
+    --border-color: #DEE2E6;
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --container-max-width: 1200px;
+    --border-radius: 5px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-dark);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.container {
+    width: 90%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.site-header {
+    background-color: var(--text-light);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.site-header .container {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.logo:hover, .logo:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.main-nav {
+    width: 100%; 
+    margin-top: 1rem;
+}
+
+.main-nav ul {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+
+.main-nav a {
+    display: block;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+.main-nav a:hover, .main-nav a:focus {
+    background-color: #E9ECEF;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.main-nav a.active {
+    color: #000;
+    font-weight: 700;
+    background-color: #E9ECEF;
+}
+
+/* --- Hero Section (Home Page) --- */
+.hero {
+    position: relative; /* For text overlay */
+    background-color: #000; /* Fallback */
+    height: 60vh; /* Viewport height */
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, cropping as needed */
+    opacity: 0.6; /* Darken the image slightly */
+}
+
+.hero-text {
+    position: absolute;
+    color: var(--text-light);
+    text-align: center;
+    padding: 1rem;
+    /* Add a shadow to make text readable on any image */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.hero-text p {
+    font-size: 1.25rem;
+}
+
+/* --- General Page/Section Layout --- */
+.intro-text {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.page-header {
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.text-content {
+    margin-bottom: 2rem;
+}
+.text-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+/* --- Gallery Page Grid (Mobile-First: 1 Column) --- */
+.photo-grid {
+    display: grid;
+    /* 1 column by default */
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 2rem;
+}
+
+.grid-item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Keep image inside rounded border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.grid-item img {
+    width: 100%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* CSS Filter Effects (Demonstration) */
+.grid-item:hover img, .grid-item:focus-within img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.effect-grayscale:hover img, .effect-grayscale:focus-within img {
+    filter: grayscale(100%);
+}
+.effect-sepia:hover img, .effect-sepia:focus-within img {
+    filter: sepia(80%);
+}
+.effect-brightness:hover img, .effect-brightness:focus-within img {
+    filter: brightness(1.2);
+}
+.effect-invert:hover img, .effect-invert:focus-within img {
+    filter: invert(100%);
+}
+
+/* --- Contact Page --- */
+.contact-layout {
+    padding-bottom: 2rem;
+}
+
+.contact-details ul {
+    list-style-type: none;
+    margin-left: 0;
+    margin-bottom: 1rem;
+}
+
+.contact-details li {
+    margin-bottom: 0.5rem;
+}
+
+/* Static Form Styling */
+.contact-form {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-sans);
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: not-allowed; /* Indicate it's not clickable */
+    opacity: 0.7;
+}
+
+.form-button:hover, .form-button:focus {
+    background-color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+
+.site-footer a {
+    color: var(--accent-color); /* Star Wars Yellow */
+}
+.site-footer a:hover, .site-footer a:focus {
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    h1 { font-size: 2.75rem; }
+    .hero-text h1 { font-size: 3.5rem; }
+    .hero-text p { font-size: 1.5rem; }
+
+    
+    .site-header .container {
+        flex-wrap: nowrap; 
+    }
+    .main-nav {
+        width: auto; 
+        margin-top: 0;
+    }
+    .main-nav ul {
+        flex-direction: row; 
+        gap: 1rem;
+    }
+    .main-nav a {
+        padding: 0.5rem 1rem;
+        text-align: left;
+    }
+
+   
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+    .contact-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    
+    .photo-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
